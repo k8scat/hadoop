@@ -1,6 +1,6 @@
-# hadoop
+# Hadoop Docker Image
 
-hadoop-3.2.1 based on centos7 and openJDK8
+Hadoop-3.2.1 docker image based on centos7 and openJDK8.
 
 ## Quick Start
 

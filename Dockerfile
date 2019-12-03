@@ -8,8 +8,8 @@ EXPOSE 8088
 EXPOSE 50070
 
 WORKDIR /opt
-
-RUN yum install -y wget && \
+RUN groupadd -r hadoop && useradd -r -g hadoop hadoop && \
+yum install -y wget && \
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo && \
 yum update -y && \
@@ -23,7 +23,6 @@ mv hadoop-3.2.1 hadoop && \
 # clean
 rm -f hadoop-3.2.1.tar.gz
 
+COPY hadoop/config/* /opt/hadoop/etc/hadoop/
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
-
-COPY hadoop/config/* /opt/hadoop/etc/hadoop/
