@@ -11,6 +11,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 
 WORKDIR /home/hadoop
 RUN groupadd -r hadoop && useradd -r -g hadoop -d /home/hadoop -m hadoop && \
+chown hadoop:hadoop /home/hadoop && \
 yum install -y wget && \
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo && \
