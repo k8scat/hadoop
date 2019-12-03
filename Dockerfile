@@ -25,6 +25,6 @@ tar -xvf hadoop-3.2.1.tar.gz && \
 # clean
 rm -f hadoop-3.2.1.tar.gz
 
-COPY hadoop/config/* /home/hadoop/hadoop-3.2.1/etc/hadoop/
+COPY config/* /home/hadoop/hadoop-3.2.1/etc/hadoop/
 
 ENTRYPOINT ["docker-entrypoint.sh"]
